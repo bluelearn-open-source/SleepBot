@@ -6,6 +6,9 @@ import random
 import Util
 
 class Rule(commands.Cog):
+	"""
+	Contains command for looking up a rule with it's index value
+	"""
 	def __init__(self, client):
 		self.client = client
 		conn = sqlite3.connect('Database.db')
