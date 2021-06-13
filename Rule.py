@@ -46,7 +46,7 @@ class Rule(commands.Cog):
 		rules = c.execute("SELECT * FROM rule_table;").fetchall()
 		conn.close()
 		rule_message = """
-Welcome to the **__Clinify Squad Discord Server__**! Enjoy your time here and make sure to read the rules carefully.
+Welcome to the **__BlueLearn Discord Server__**! Enjoy your time here and make sure to read the rules carefully.
 Please read and abide by the Discord ToS/Guidelines. Breaking these will result in an immediate ban
 Discord ToS: https://discord.com/guidelines \n
 **Server Rules:**"""
