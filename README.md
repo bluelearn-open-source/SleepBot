@@ -1,8 +1,8 @@
-# Clinify Squad's SleepBot
+# BlueLearn's SleepBot
 
-Official Bot for the Clinify.in Discord Server written in Python using Discord.py
+Official Bot for the Bluelearn.in Discord Server written in Python using Discord.py
 
-Though this bot is intended to be used only on the Clinify.in Discord Server, you can self host it in your server to test it out. Installation guide down below.
+Though this bot is intended to be used only on the BlueLearn Discord Server, you can self host it in your server to test it out. Installation guide down below.
 
 ## Dependancies
 
@@ -23,6 +23,10 @@ DISCORD_TOKEN=Your Token Here
 ## Note
 
 This bot requires Server Members Intent so make sure to enable that by going to your Discord Application -> Bot -> Privilaged Gateway Intents and enabling Server Members Intent. Without this, bot won't be able to access the cache to get user names.
+
+## Contribution
+
+Pull Requests will no longer be accepted on this repository. To create a pull request, go to the following repo: https://github.com/Clinify-Open-Sauce/SleepBot. However, this repository will continue to be updated.
 
 ## Changelogs
 
