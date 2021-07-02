@@ -1,4 +1,5 @@
 from threading import Thread
+import discord
 from discord.ext.commands.converter import GuildConverter
 from flask import Flask,jsonify
 from functools import partial
@@ -24,9 +25,15 @@ def hello():
 @app.route("/stats")
 def stats():
     SERVER_ID = 786066239537020948
-    Guild:GuildConverter = bot.get_guild(SERVER_ID)
-    NumberOfMembers = Guild.member_count
-    return jsonify(NumberOfMembers)
+    guild:discord.Guild = bot.get_guild(SERVER_ID)
+    member_count = guild.member_count
+    roles_count=len(guild.roles)
+    return jsonify(
+        {
+        "member_count":member_count,
+        "roles_count":roles_count,
+        }
+        )
 t = Thread(target=partial_run)
 t.start()
 
