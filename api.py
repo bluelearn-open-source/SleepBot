@@ -10,10 +10,15 @@ import os
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
+# Adding Intents
+intents = discord.Intents.default()
+intents.members = True
+intents.guilds = True
+
 
 # Initialize our app and the bot itself
 app = Flask(__name__)
-bot = commands.Bot(command_prefix="!")
+bot = commands.Bot(command_prefix="?", intents=intents)
 partial_run = partial(app.run, host="0.0.0.0", port=5000, debug=True, use_reloader=False)
 
 
