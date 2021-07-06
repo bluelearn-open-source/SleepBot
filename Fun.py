@@ -104,7 +104,9 @@ class Fun(commands.Cog):
 	async def avatar(self, ctx, *, target: discord.Member = None):
 		embed=discord.Embed(title='Avatar', colour=random.randint(0,0xffffff))
 		msg = await ctx.send(embed = Util.loading_embed)
-		if target == None:
+		if ctx.channel.id == 742057568230441030:
+			return
+ 		if target == None:
 			pfp_url = ctx.message.author.avatar_url
 			embed.set_author(name=ctx.message.author, icon_url=ctx.message.author.avatar_url)
 		else:
