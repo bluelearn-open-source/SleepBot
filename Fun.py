@@ -101,9 +101,12 @@ class Fun(commands.Cog):
 		await ctx.send(embed = embed)
 
 
-	@commands.command(name='eval', aliases=['evaluate', 'calculate'], help='Evaluates an arithemetic string')
-	async def evaluate(self,ctx, string):
-		await ctx.send(eval(string))
+	@commands.command(name='solve', aliases=['evaluate', 'calculate', 'eval'], help='Evaluates an arithemetic expression')
+	async def solve(self,ctx, expression):
+		await ctx.send(eval(expression))
+	@solve.error
+	async def eval_error(self, ctx, error):
+		await ctx.send("Provide a valid arithematic expression.")
 	
 	@commands.command(name='avatar', aliases=['av','profile', 'pfp'], help='Sends the Avatar of the Mentioned User. If no one is mentioned then sends the Avatar of the Author.')
 	async def avatar(self, ctx, *, target: discord.Member = None):
