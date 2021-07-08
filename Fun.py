@@ -99,6 +99,11 @@ class Fun(commands.Cog):
 		embed.add_field(name = name, value = value)
 		embed.set_footer(text = "Requested by {}".format(ctx.message.author), icon_url = ctx.message.author.avatar_url)
 		await ctx.send(embed = embed)
+
+
+	@commands.command(name='eval', aliases=['evaluate', 'calculate'], help='Evaluates an arithemetic string')
+	async def evaluate(self,ctx, string):
+		await ctx.send(eval(string))
 	
 	@commands.command(name='avatar', aliases=['av','profile', 'pfp'], help='Sends the Avatar of the Mentioned User. If no one is mentioned then sends the Avatar of the Author.')
 	async def avatar(self, ctx, *, target: discord.Member = None):
