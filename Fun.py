@@ -100,19 +100,18 @@ class Fun(commands.Cog):
 		embed.set_footer(text = "Requested by {}".format(ctx.message.author), icon_url = ctx.message.author.avatar_url)
 		await ctx.send(embed = embed)
 
-
 	@commands.command(name='solve', aliases=['evaluate', 'calculate', 'eval'], help='Evaluates an arithemetic expression')
 	async def solve(self,ctx, expression):
 		await ctx.send(eval(expression))
 	@solve.error
 	async def eval_error(self, ctx, error):
-		await ctx.send("Provide a valid arithematic expression.")
-	
+		await Util.ErrorHandler(ctx, error)
+		
 	@commands.command(name='avatar', aliases=['av','profile', 'pfp'], help='Sends the Avatar of the Mentioned User. If no one is mentioned then sends the Avatar of the Author.')
 	async def avatar(self, ctx, *, target: discord.Member = None):
 		embed=discord.Embed(title='Avatar', colour=random.randint(0,0xffffff))
 		msg = await ctx.send(embed = Util.loading_embed)
- 		if target == None:
+		if target == None:
 			pfp_url = ctx.message.author.avatar_url
 			embed.set_author(name=ctx.message.author, icon_url=ctx.message.author.avatar_url)
 		else:
