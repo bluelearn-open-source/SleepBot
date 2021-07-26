@@ -12,4 +12,5 @@ def secTotime(inp:int)->str:
         return f"{int(inp/60)} min {int(inp%60)} sec"
     return f"{inp} sec"
 if __name__=="__main__":
-    handleError("You are on cooldown. Try again in 362.11s")
+    r = handleError("You are on cooldown. Try again in 362.11s")
+    print(r)
