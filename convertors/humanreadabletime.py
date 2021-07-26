@@ -7,10 +7,10 @@ def handleError(error:str)->str:
     return error
 def secTotime(inp:int)->str:
     if inp/3600>=1:
-        return f"{int(inp/3600)} hr {int(inp%3600/60)} min"
+        return f"{int(inp/3600)}hr {int(inp%3600/60)} min"
     if inp/60>=0:
-        return f"{int(inp/60)} min {int(inp%60)} sec"
-    return f"{inp} sec"
+        return f"{int(inp/60)} min {int(inp%60)}s"
+    return f"{inp}s"
 if __name__=="__main__":
-    r = handleError("You are on cooldown. Try again in 362.11s")
+    r = handleError("You are on cooldown. Try again in 33362.11s")
     print(r)
