@@ -7,7 +7,7 @@ from discord.ext import commands
 
 class Photography(commands.Cog):
     """
-    Contains commands for making annoucements for BlueLearn Originals
+    Contains commands for making posts for Photography Club
     """
 
     def __init__(self, client):
@@ -16,7 +16,7 @@ class Photography(commands.Cog):
         self.EditedChannel = 825054426925498389
         self.HangoutChannel = 825055154201821244
 
-    @commands.command(name="postraw")
+    @commands.command(name="postraw", help="Posts attachment to the Raw Clicks channel")
     async def postraw(self, ctx, *, description=None):
         if ctx.channel.id == self.HangoutChannel:
             if not len(ctx.message.attachments) < 1:
@@ -42,7 +42,7 @@ class Photography(commands.Cog):
     async def postrawerror(self, ctx, error):
         await Util.ErrorHandler(ctx, error)
 
-    @commands.command(name="postedited")
+    @commands.command(name="postedited", help="Posts attachment to the Edited Pictures channel")
     async def postedited(self, ctx, *, description=None):
         if ctx.channel.id == self.HangoutChannel:
             if not len(ctx.message.attachments) < 1:
@@ -67,6 +67,8 @@ class Photography(commands.Cog):
     @postedited.error
     async def posteditederror(self, ctx, error):
         await Util.ErrorHandler(ctx, error)
+    
+
 
 def setup(client):
     client.add_cog(Photography(client))
