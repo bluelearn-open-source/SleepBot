@@ -63,7 +63,7 @@ class Study(commands.Cog):
 			roles = m.roles
 			for r in roles:
 				if r.name=="Studying/Working" or r.id==816873155246817290:
-					return await message.channel.send(f"{author.mention} Don't ping {m.nick or f'{m.name}# {m.discriminator}'} Studying/Working")
+					return await message.channel.send(f"{author.mention} Don't ping {m.nick or f'{m.name}# {m.discriminator}'} they are Studying/Working")
 		for role in author.roles:
 			if role.name=="Studying/Working" or role.id==816873155246817290:
 				# return await message.channel.send(f"Go Study/Work {author.mention}")
