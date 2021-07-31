@@ -2,6 +2,8 @@ import discord
 import random
 from discord.ext.commands.cog import Cog
 from discord.ext.commands.core import Command
+from discord.message import Message
+from discord.role import Role
 import Util
 from datetime import datetime
 from discord.ext import commands
@@ -51,6 +53,23 @@ class Study(commands.Cog):
 				await self.client.get_channel(self.FocusChannelID).send(embed = await self.StudyVCJoinMessage(member, NoOfRoles))
 		else:
 			return
-
+	@commands.Cog.listener()
+	async def on_message(self, message:Message):
+		author :discord.Member= message.author
+		role:Role
+		if message.author.bot:return
+		mention = message.mentions
+		for m in mention:
+			roles = m.roles
+			for r in roles:
+				if r.name=="Studying/Working" or r.id==816873155246817290:
+					return await message.channel.send(f"{author.mention} Don't ping {m.nick or f'{m.name}# {m.discriminator}'} Studying/Working")
+		for role in author.roles:
+			if role.name=="Studying/Working" or role.id==816873155246817290:
+				# return await message.channel.send(f"Go Study/Work {author.mention}")
+				pass
+			# print(role.name)
+		# print(message)
+		# print(author,mention)
 def setup(client):
 	client.add_cog(Study(client))
