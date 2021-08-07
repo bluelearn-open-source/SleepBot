@@ -1,3 +1,4 @@
+from typing import List, Union
 import discord
 import sqlite3
 import random
@@ -14,15 +15,35 @@ class Point(commands.Cog):
 
 	@commands.command(name = 'give_coins', aliases = ['give_points'])
 	@commands.has_role('SleepBot Admin')
-	async def give_coins(self, ctx, target: discord.Member = None, amount = 0):
-		await Util.command_log(self.client, ctx, "give_points")
-		if target == None:
-			return
-		if target.id in Util.POINT:
-			Util.POINT[target.id] += amount
+	async def give_coins(self, ctx, target: Union[discord.User,discord.Role] = None, amount = 0):
+		if type(target) == discord.Role:
+			targets:List(discord.User) = target.members
+			t:discord.Member
+			for t in targets:
+				await Util.command_log(self.client, ctx, "give_points")
+				if t == None :
+					return
+				if not t.bot:
+					if t.id in Util.POINT:
+						Util.POINT[t.id] += amount
+					else:
+						Util.POINT[t.id] = amount
+					embed = discord.Embed(title = "Bluelearn Points", description = f"{amount} points have been given to {t.mention}", color = discord.Color.green())
+					# await ctx.send(embed = embed)
+					am = discord.AllowedMentions(
+            		users=False,
+        			)
+					await ctx.send(f"Gave {t.mention} {amount} coins.", allowed_mentions=am)
+					# await ctx.send(f'Gave {t.nick} {amount} coins')
 		else:
-			Util.POINT[target.id] = amount
-		await ctx.send(f'Gave {target} {amount} coins')
+			await Util.command_log(self.client, ctx, "give_points")
+			if target == None:
+				return
+			if target.id in Util.POINT:
+				Util.POINT[target.id] += amount
+			else:
+				Util.POINT[target.id] = amount
+			await ctx.send(f'Gave {target.mention} {amount} coins')
 	
 	@commands.command(name='coins', 
 		aliases=['point', 'points', 'coin'], 
