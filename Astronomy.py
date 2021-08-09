@@ -16,7 +16,7 @@ class Astronomy(commands.Cog):
         name = requests.get('https://api.thingspeak.com/apps/thinghttp/send_request?api_key=N70VM2PR9GWHVUPM').text
         # await ctx.send(result)
         # print(result)
-        embed=discord.Embed(title=result['title'], url='https://apod.nasa.gov/apod/astropix.html', description=result['explanation'], color=0x4600b0)
+        embed=discord.Embed(title=result['title'], url='https://apod.nasa.gov/apod/astropix.html', description=result['explanation'], color=0x3dffc8)
         # embed.set_thumbnail(url=result['hdurl'])
         a=f"Astronomy Picture of The Day for {datetime.date.today().strftime('%d, %b %Y')}"
         embed.set_author(name=a)
@@ -37,7 +37,7 @@ class Astronomy(commands.Cog):
         name = requests.get('https://api.thingspeak.com/apps/thinghttp/send_request?api_key=N70VM2PR9GWHVUPM').text
         # await ctx.send(result)
         # print(result)
-        embed=discord.Embed(title=result['title'], url='https://apod.nasa.gov/apod/astropix.html', description=result['explanation'], color=0x4600b0)
+        embed=discord.Embed(title=result['title'], url='https://apod.nasa.gov/apod/astropix.html', description=result['explanation'], color=0x3dffc8)
         # embed.set_thumbnail(url=result['hdurl'])
         a=f"Astronomy Picture of The Day for {datetime.date.today().strftime('%d, %b %Y')}"
         embed.set_author(name=a)
