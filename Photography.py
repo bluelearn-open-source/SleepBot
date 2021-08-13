@@ -25,7 +25,7 @@ class Photography(commands.Cog):
             if not len(description) < 1:
                 postembed = discord.Embed(title="{}".format(
                     description), colour=random.randint(0, 0xffffff))
-                postembed.set_image(url=ctx.message.attachments[0])
+                postembed.set_image(url=ctx.message.attachments[0].url)
                 postembed.set_author(name="{}".format(
                 ctx.message.author.display_name), icon_url=ctx.message.author.avatar_url)
                 sent = await self.client.get_channel(self.RawChannel).send(embed=postembed)
@@ -52,7 +52,7 @@ class Photography(commands.Cog):
             if not len(description) < 1:
                 postembed = discord.Embed(title="{}".format(
                     description), colour=random.randint(0, 0xffffff))
-                postembed.set_image(url=ctx.message.attachments[0])
+                postembed.set_image(url=ctx.message.attachments[0].url)
                 postembed.set_author(name="{}".format(
                 ctx.message.author.display_name), icon_url=ctx.message.author.avatar_url)
                 sent = await self.client.get_channel(self.EditedChannel).send(embed=postembed)
