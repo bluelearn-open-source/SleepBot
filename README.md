@@ -26,7 +26,7 @@ This bot requires Server Members Intent so make sure to enable that by going to 
 
 ## Contribution
 
-Pull Requests will no longer be accepted on this repository. To create a pull request, go to the following repo: https://github.com/ZeusAbhijeet/SleepBot-Hikari-Rewrite. However, this repository will continue to be updated.
+Pull Requests will no longer be accepted on this repository. To create a pull request, go to the following repo: https://github.com/ZeusAbhijeet/SleepBot-Hikari-Rewrite.
 
 ## Changelogs
 
